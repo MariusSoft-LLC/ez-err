@@ -1,9 +1,9 @@
 [package]
 name = "ez-err"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2018"
 rust-version = "1.31"
-authors = ["Friedrich Schirmer <friedrichschirme@gmail.com>"]
+authors = ["The CrushDepth-Team"]
 description = "A simple error handling library with support for ergonomic and fast error handling."
 documentation = "https://docs.rs/ez-err/latest/ez_err"
 readme = "README.md"
