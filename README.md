@@ -108,7 +108,7 @@ fn use_ez_err() -> ez_err::Result<i32> {
 This project is licensed under the [MIT license](https://github.com/MariusSoft-LLC/ez-err/blob/main/LICENSE).
 
 # Contribution
-Any contribution intentionally submi
+Any contribution intentionally submitted for inclusion in the work by you, shall be licensed as MIT, without any additional terms or conditions.
 
 # Special Thanks
 This project is part of tools developed for CrushDepth. Feel free to take a look at some of our projects:
