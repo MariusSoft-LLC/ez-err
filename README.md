@@ -22,7 +22,7 @@ To use ez-err, you need to add `use ez_err::prelude::*` to your source file.
 Once that is done, you can use the custom [`Result<T>`] type in your functions
 and then handle all errors by using `xxx.loc(flc!())?`. It is possible to use this
 same pattern when converting from any error type to [`EzError`].
-```ignore
+```rust
 use ez_err::prelude::*;
 use std::io::Write;
 fn save_log_output(log: String) -> Result<()> {
@@ -55,7 +55,7 @@ crates require manually adding error reasons, which can be helpful but can
 often be overkill.
 Here is an example to show the difference between this crate and a popular
 one ([error-chain](https://crates.io/crates/error-chain)):
-```ignore
+```rust
 fn error_producer() -> Result<i32> { /* ... */ }
 // Propagate an error using error-chain
 fn use_error_chain() -> Result<i32> {
