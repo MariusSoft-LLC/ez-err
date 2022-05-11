@@ -4,12 +4,12 @@
 /// passing down errors.
 pub type Result<T> = std::result::Result<T, EzError>;
 
-/// Throws an error.
-/// Shortcut for `return Err(EzError::custom("some error"))`
+/// Throws an error and returns early.
+/// Shortcut for `Err(EzError::message("some error")).loc(flc!())?`
 #[macro_export]
 macro_rules! bail {
     ($($args:tt)*) => {
-        return Err(EzError::custom(&::std::format_args!($($args)*).to_string()));
+        Err(EzError::message(&::std::format_args!($($args)*).to_string())).loc(flc!())?
     };
 }
 
@@ -340,5 +340,19 @@ mod tests {
         assert_eq!(loc.file, file);
         assert_eq!(loc.line, line - 1);
         assert_eq!(loc.column, 65);
+    }
+
+    #[test]
+    fn correct_bail() {
+        let inner_line = line!() + 2;
+        fn inner() -> Result<()> {
+            bail!("bailed");
+
+            Ok(())
+        }
+
+        let err = inner().err().unwrap();
+        assert_eq!(&ErrorType::Message("bailed".into()), err.ty());
+        assert_eq!(inner_line, err.frames()[0].line);
     }
 }
