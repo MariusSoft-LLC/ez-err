@@ -72,7 +72,7 @@
 //! // Propagate an error using ez-err
 //! fn use_ez_err() -> ez_err::Result<i32> {
 //!     /* ... */
-//!     let value: i32 = error_producer().info(flc!())?;
+//!     let value: i32 = error_producer().loc(flc!())?;
 //!     Ok(value + 1)
 //! }
 //! ```
